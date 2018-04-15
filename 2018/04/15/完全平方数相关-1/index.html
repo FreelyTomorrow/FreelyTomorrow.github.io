@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>tags | Blog</title>
+  <title>完全平方数相关(1) | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="首先谈一谈如何判断一个数是否是完全平方数,如果不使用如sqrt库函数,我收集了2种做法.第一种方法利用了完全平方数的一个性质,一个完全平方数为以1开头,项差为2的等差数列的和组成,例如9=1+3+5.解法如下: Solution1:1234567891011class Solution &amp;#123;public:bool isPerfectSquare(int num) &amp;#123;   int">
+<meta name="keywords" content="计算机算法,leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="完全平方数相关(1)">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/完全平方数相关-1/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="首先谈一谈如何判断一个数是否是完全平方数,如果不使用如sqrt库函数,我收集了2种做法.第一种方法利用了完全平方数的一个性质,一个完全平方数为以1开头,项差为2的等差数列的和组成,例如9=1+3+5.解法如下: Solution1:1234567891011class Solution &amp;#123;public:bool isPerfectSquare(int num) &amp;#123;   int">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-15T08:31:46.764Z">
+<meta property="og:updated_time" content="2018-04-15T13:23:29.497Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="完全平方数相关(1)">
+<meta name="twitter:description" content="首先谈一谈如何判断一个数是否是完全平方数,如果不使用如sqrt库函数,我收集了2种做法.第一种方法利用了完全平方数的一个性质,一个完全平方数为以1开头,项差为2的等差数列的和组成,例如9=1+3+5.解法如下: Solution1:1234567891011class Solution &amp;#123;public:bool isPerfectSquare(int num) &amp;#123;   int">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -139,27 +143,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-完全平方数相关-1" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      完全平方数相关(1)
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2018-04-15T08:31:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
+        <a href="/2018/04/15/完全平方数相关-1/" class="archive-article-date">
+  	<time datetime="2018-04-15T12:41:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>首先谈一谈如何判断一个数是否是完全平方数,如果不使用如sqrt库函数,我收集了2种做法.第一种方法利用了完全平方数的一个性质,一个完全平方数为以1开头,项差为2的等差数列的和组成,例如9=1+3+5.解法如下:</p>
+<h4 id="Solution1"><a href="#Solution1" class="headerlink" title="Solution1:"></a>Solution1:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (num &gt; <span class="number">0</span>) &#123;</span><br><span class="line">     num -= i;</span><br><span class="line">     i += <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>也可以利用二分搜索,判断mid*mid是否等于该数.解法如下:</p>
+<h4 id="Solution2"><a href="#Solution2" class="headerlink" title="Solution2:"></a>Solution2:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> low = <span class="number">1</span>, high = num;</span><br><span class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">long</span> mid = (low + high) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (mid * mid == num) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mid * mid &lt; num) &#123;</span><br><span class="line">                low = (<span class="keyword">int</span>) mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                high = (<span class="keyword">int</span>) mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>LeetCode 上有一道Perfect Squares, 问一个数如果用n个完全平方数相加,n最小是多少,题的描述如下:</p>
+<pre><code>Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n.For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return 2 because 13 = 4 + 9.
+</code></pre><p>此题可以看作背包问题,用动态规划求解,当前包的最小物体件数cnt[i],可以由cnt[i-j*j]包最小件数+1决定, 解法有vector和静态vector,静态vector不需初始化,速度更快.</p>
+<h4 id="Solution1-1"><a href="#Solution1-1" class="headerlink" title="Solution1:"></a>Solution1:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;=<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; cnt(n+<span class="number">1</span>,INT_MAX);</span><br><span class="line">    cnt[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j*j&lt;=i;j++)&#123;</span><br><span class="line">            cnt[i]=min(cnt[i],cnt[i-j*j]+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt.back();</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Solution2-1"><a href="#Solution2-1" class="headerlink" title="Solution2:"></a>Solution2:</h4><p>class Solution {<br>public:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; cntPerfectSquares(&#123;<span class="number">0</span>&#125;);</span><br><span class="line">    <span class="keyword">while</span> (cntPerfectSquares.size() &lt;= n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> m = cntPerfectSquares.size();</span><br><span class="line">        <span class="keyword">int</span> cntSquares = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i*i &lt;= m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cntSquares = min(cntSquares, cntPerfectSquares[m - i*i] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        cntPerfectSquares.push_back(cntSquares);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cntPerfectSquares[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>};</p>
+<p>另一个解法由leetcode一位大神提供,他基于Lagrange’s Four Square theorem发现此题只有1,2,3,4 四种答案,然后利用特殊方式依次判断</p>
+<h4 id="Solution3"><a href="#Solution3" class="headerlink" title="Solution3:"></a>Solution3:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span></span><br><span class="line"><span class="class">&#123;</span>  </span><br><span class="line"><span class="keyword">private</span>:  </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">is_square</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> sqrt_n = (<span class="keyword">int</span>)(<span class="built_in">sqrt</span>(n));  </span><br><span class="line">        <span class="keyword">return</span> (sqrt_n*sqrt_n == n);  </span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">// Based on Lagrange's Four Square theorem, there </span></span><br><span class="line"><span class="comment">// are only 4 possible results: 1, 2, 3, 4.</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="comment">// If n is a perfect square, return 1.</span></span><br><span class="line">    <span class="keyword">if</span>(is_square(n)) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// The result is 4 if and only if n can be written in the </span></span><br><span class="line">    <span class="comment">// form of 4^k*(8*m + 7). Please refer to </span></span><br><span class="line">    <span class="comment">// Legendre's three-square theorem.</span></span><br><span class="line">    <span class="keyword">while</span> ((n &amp; <span class="number">3</span>) == <span class="number">0</span>) <span class="comment">// n%4 == 0  </span></span><br><span class="line">    &#123;</span><br><span class="line">        n &gt;&gt;= <span class="number">2</span>;  </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((n &amp; <span class="number">7</span>) == <span class="number">7</span>) <span class="comment">// n%8 == 7</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Check whether 2 is the result.</span></span><br><span class="line">    <span class="keyword">int</span> sqrt_n = (<span class="keyword">int</span>)(<span class="built_in">sqrt</span>(n)); </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sqrt_n; i++)</span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="keyword">if</span> (is_square(n - i*i)) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -188,6 +206,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -238,7 +271,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/15/完全平方数相关-1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -300,7 +333,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
