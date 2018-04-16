@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Blog">
 <meta property="og:description" content="首先谈一谈如何判断一个数是否是完全平方数,如果不使用如sqrt库函数,我收集了2种做法.第一种方法利用了完全平方数的一个性质,一个完全平方数为以1开头,项差为2的等差数列的和组成,例如9=1+3+5.解法如下: Solution1:1234567891011class Solution &amp;#123;public:bool isPerfectSquare(int num) &amp;#123;   int">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-15T13:23:29.497Z">
+<meta property="og:updated_time" content="2018-04-16T15:24:27.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="完全平方数相关(1)">
 <meta name="twitter:description" content="首先谈一谈如何判断一个数是否是完全平方数,如果不使用如sqrt库函数,我收集了2种做法.第一种方法利用了完全平方数的一个性质,一个完全平方数为以1开头,项差为2的等差数列的和组成,例如9=1+3+5.解法如下: Solution1:1234567891011class Solution &amp;#123;public:bool isPerfectSquare(int num) &amp;#123;   int">
@@ -59,8 +59,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -110,8 +108,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -126,9 +122,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -165,6 +159,7 @@
       
         <p>首先谈一谈如何判断一个数是否是完全平方数,如果不使用如sqrt库函数,我收集了2种做法.第一种方法利用了完全平方数的一个性质,一个完全平方数为以1开头,项差为2的等差数列的和组成,例如9=1+3+5.解法如下:</p>
 <h4 id="Solution1"><a href="#Solution1" class="headerlink" title="Solution1:"></a>Solution1:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (num &gt; <span class="number">0</span>) &#123;</span><br><span class="line">     num -= i;</span><br><span class="line">     i += <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>也可以利用二分搜索,判断mid*mid是否等于该数.解法如下:</p>
 <h4 id="Solution2"><a href="#Solution2" class="headerlink" title="Solution2:"></a>Solution2:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> low = <span class="number">1</span>, high = num;</span><br><span class="line">        <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">long</span> mid = (low + high) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (mid * mid == num) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mid * mid &lt; num) &#123;</span><br><span class="line">                low = (<span class="keyword">int</span>) mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                high = (<span class="keyword">int</span>) mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <hr>
@@ -474,7 +469,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">本人硕士研究生一枚&lt;br&gt;爱好乒乓球、美食、ACGN文化,日语N1水平&lt;br&gt;&lt;br&gt;顺便提一句，喜欢V家歌曲</div>
   	  	
     	</section>
     
