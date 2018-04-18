@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: leetcode | Blog</title>
+  <title>微博情感分类器 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/tags/leetcode/index.html">
+  <meta name="description" content="这是我和两个朋友一起合作的项目,这里简单介绍一些,项目发布地址为:https://github.com/FreelyTomorrow/MiroBlogSentiment 目标微博又名微型博客，属于博客的一种，是网络社交平台的一种分享简短实时信息的一种灵活的文体。 微博能够分享有自己的感受，即表达出每时每刻的思想和最新的动态，它的文字内容简短，一般控制在140字以内。正因微博的文体灵活、简单，用户往">
+<meta name="keywords" content="长文,自然语言处理,情感分类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微博情感分类器">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/微博情感分类器/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="这是我和两个朋友一起合作的项目,这里简单介绍一些,项目发布地址为:https://github.com/FreelyTomorrow/MiroBlogSentiment 目标微博又名微型博客，属于博客的一种，是网络社交平台的一种分享简短实时信息的一种灵活的文体。 微博能够分享有自己的感受，即表达出每时每刻的思想和最新的动态，它的文字内容简短，一般控制在140字以内。正因微博的文体灵活、简单，用户往">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-18T03:15:26.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
+<meta name="twitter:title" content="微博情感分类器">
+<meta name="twitter:description" content="这是我和两个朋友一起合作的项目,这里简单介绍一些,项目发布地址为:https://github.com/FreelyTomorrow/MiroBlogSentiment 目标微博又名微型博客，属于博客的一种，是网络社交平台的一种分享简短实时信息的一种灵活的文体。 微博能够分享有自己的感受，即表达出每时每刻的思想和最新的动态，它的文字内容简短，一般控制在140字以内。正因微博的文体灵活、简单，用户往">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -132,68 +137,225 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-微博情感分类器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/15/完全平方数相关-1/" class="archive-article-date">
-  	<time datetime="2018-04-15T12:41:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/15/完全平方数相关-1/">完全平方数相关(1)</a>
+    <h1 class="article-title" itemprop="name">
+      微博情感分类器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/15/微博情感分类器/" class="archive-article-date">
+  	<time datetime="2018-04-15T13:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我和两个朋友一起合作的项目,这里简单介绍一些,项目发布地址为:<a href="https://github.com/FreelyTomorrow/MiroBlogSentiment" target="_blank" rel="noopener">https://github.com/FreelyTomorrow/MiroBlogSentiment</a></p>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>微博又名微型博客，属于博客的一种，是网络社交平台的一种分享简短实时信息的一种灵活的文体。</p>
+<p>微博能够分享有自己的感受，即表达出每时每刻的思想和最新的动态，它的文字内容简短，一般控制在140字以内。正因微博的文体灵活、简单，用户往往会利用微博发表自己对一些事物的观点。<a id="more"></a></p>
+<p>微博是一种口语化的短文本，用词精炼，简洁，存在噪音比如拼写错误，但其中富含观点、倾向与态度。在众多的微博中不乏专门对某种产品的评价的微博，隐含在微博的对产品评价的倾向性，对于公司来说意味着非凡的商业的价值，公司会根据用户的评价对自己的商品进行改善。因此，识别微博句子中的倾向性，具有重要的现实意义。所以这次作业，我们选择了COAE2014中的任务4作为作业的题目。下面是任务4的具体介绍:</p>
+<p>1、本任务是对给定微博句子集，要求参赛系统自动分析微博句子集中每个句子的情感倾向性，即褒义、贬义或者中性。</p>
+<p>2、数据集规模约为40000篇，其中标注样本约为7000篇。为防止作弊，加入了33000篇干扰样本，干扰样本也可能是含有倾向的。我们的评测只对其中7000篇进行。</p>
+<p>3、语料的收集与标注由计算所和山西大学共同完成。</p>
+<p>4、本语料只能作为研究用途。</p>
+<p>5、提交结果以10000篇为限。</p>
+<p>6、评测指标采用Precision、Recall、F-measure以及Accuracy。</p>
+<p>提交结果格式：</p>
+<p>IdSenIDRun-tag Polarity</p>
+<p>Id: 任务编号（此任务编号为2.4）</p>
+<p>SenID：句子编号</p>
+<p>Run-tag：评测系统编号</p>
+<p>Polarity：观点极性，1代表褒义，0代表中性，-1代表贬义</p>
+<p>例如下面四个句子</p>
+<doc1>诺基亚lumia新款win8系统，用起来很流畅哦，很好用</doc1>
+
+<doc2>我舍友的诺基亚Lumia竟然摔坏了，就摔了一下</doc2>
+
+<doc3>试玩了诺基亚lumia920，感觉浏览器、应用软件的质量比ios、andorid差了好多</doc3>
+
+<doc4>不管怎么样，奥迪A6L一直是我的最爱，最爱，最爱</doc4>
+
+<doc5>强烈推荐北京银行信用卡。人家北京银行不差钱儿，是偶用过的信用卡中活动最多、礼品最好滴。</doc5>
+
+
+
+<p>输出结果：</p>
+<p>2.4     Doc1  xxx 1</p>
+<p>2.4     Doc2  xxx -1</p>
+<p>2.4     Doc3  xxx -1</p>
+<p>2.4     Doc4  xxx 1</p>
+<p>2.4     Doc5  xxx 1</p>
+<h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p>句子级情感分析研究可以应用有监督、无监督和半监督三类方法完成。传统方法往往先进行分词，再利用词语、n-gram等亚句子结构进行特征提取，以词袋模型为基础进行分类，结合句法结构来预处理和优化。例如使用朴素贝叶斯方法进行特征极性的学习；使用K-近邻方法，利用tag监督学习句子的情感类型；使用LDA方法和关联规则进行特征、情感词的提取，再通过交叉验证来优化情感词典；用Apriori算法利用频次对特征进行提取，用bootstrapping学习特征极性；SVM被发现是特征分类的优良方法；利用隐马尔可夫模型来进行监督学习则突破了词袋模型的限制，可以利用依存关系、词性等信息。多层次结构、社交信息可以在半监督学习中提高分析的准确度，半监督学习还可以一定程度上避免语料不平衡的问题。近年来，神经网络方法也开始应用于情感分析。基于深度卷积网络可以对每个词进行极性标注，也可以学习从带标注的词序列到句子情感类型的模式；基于循环神经网络可以将句子语义映射到一个高维词向量空间，再进行监督或半监督的分类或者无监督的聚类。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>系统最大的优点：基于词典的特征和基于DocVec2的内容特征的双特征的联合聚类进行分析，其中聚类方式进行专对微博语料的定制，显著的提高了准确率。</p>
+<h3 id="l-词典特征"><a href="#l-词典特征" class="headerlink" title="l  词典特征"></a>l  词典特征</h3><p>中文语料都是有一个一个词构成的，其中词的情感可以分为三类，正向词，负向词，中性词，而构成句子。然而本系统会产生三种微博：产品正向评价微博，产品负向评价微博，与产品评价无相关的微博，即噪音微博，基于词典特征，只能解决前三种情感，对于噪音微博十分疲软。理论上无法识别噪音。</p>
+<p>l  Doc2Vec内容特征</p>
+<p>训练神经网络，利用神经网络对词进行向量化，在向量化的基础上进行聚类分析，这种方案解决了无法识别噪音微博的问题。在准确率方面有了一定的提升，但是缺乏强有力的词典，在正向情感，负向情感，中性情感分析方面，强度不如词典特征那么高，所以准确率方面表现没有预期的高。</p>
+<p>l  双特征结合</p>
+<p>双特征融合了词典特征和内容特征的优势，准确率产生了质的提高，一方面显著表征为噪音的识别，一方面正向，负向，噪音三种的识别进行了强化，所以准确率得到了一定的提升。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>ありがとうございました<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">长文</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">自然语言处理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">情感分类</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/15/微博情感分类器/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/04/17/机器学习概念-先-后验概率，判别-生成模型/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          机器学习概念:先/后验概率，判别/生成模型
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/04/15/完全平方数相关-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">完全平方数相关(1)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -216,9 +378,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: leetcode | Blog</title>
+  <title>机器学习概念:先/后验概率，判别/生成模型 | Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Blog">
-<meta property="og:url" content="http://yoursite.com/tags/leetcode/index.html">
+  <meta name="description" content="机器学习中先验概率,后验概率是比较容易混淆的概念，如果没有弄清难以对数据建模 先验概率，就是某事件的发生概率，可以由常识或统计得到，如P(x). 后验概率，即反向条件概率，条件概率指一个事件发生后另一个事件的概率，如P(x|y)的反向概率为P(y|x). 贝叶斯公式为P(y|x)=P(x|y)*P(y)/P(x)  其中P(x)、P(y)为先验概率, P(y|x)为基于先验概率和条件概率求出的后验">
+<meta name="keywords" content="机器学习,基础概念,小贴士">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习概念:先&#x2F;后验概率，判别&#x2F;生成模型">
+<meta property="og:url" content="http://yoursite.com/2018/04/17/机器学习概念-先-后验概率，判别-生成模型/index.html">
 <meta property="og:site_name" content="Blog">
+<meta property="og:description" content="机器学习中先验概率,后验概率是比较容易混淆的概念，如果没有弄清难以对数据建模 先验概率，就是某事件的发生概率，可以由常识或统计得到，如P(x). 后验概率，即反向条件概率，条件概率指一个事件发生后另一个事件的概率，如P(x|y)的反向概率为P(y|x). 贝叶斯公式为P(y|x)=P(x|y)*P(y)/P(x)  其中P(x)、P(y)为先验概率, P(y|x)为基于先验概率和条件概率求出的后验">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-18T03:10:04.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog">
+<meta name="twitter:title" content="机器学习概念:先&#x2F;后验概率，判别&#x2F;生成模型">
+<meta name="twitter:description" content="机器学习中先验概率,后验概率是比较容易混淆的概念，如果没有弄清难以对数据建模 先验概率，就是某事件的发生概率，可以由常识或统计得到，如P(x). 后验概率，即反向条件概率，条件概率指一个事件发生后另一个事件的概率，如P(x|y)的反向概率为P(y|x). 贝叶斯公式为P(y|x)=P(x|y)*P(y)/P(x)  其中P(x)、P(y)为先验概率, P(y|x)为基于先验概率和条件概率求出的后验">
   
     <link rel="alternative" href="/atom.xml" title="Blog" type="application/atom+xml">
   
@@ -132,68 +137,182 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-机器学习概念-先-后验概率，判别-生成模型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/15/完全平方数相关-1/" class="archive-article-date">
-  	<time datetime="2018-04-15T12:41:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/15/完全平方数相关-1/">完全平方数相关(1)</a>
+    <h1 class="article-title" itemprop="name">
+      机器学习概念:先/后验概率，判别/生成模型
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/17/机器学习概念-先-后验概率，判别-生成模型/" class="archive-article-date">
+  	<time datetime="2018-04-17T15:28:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>机器学习中先验概率,后验概率是比较容易混淆的概念，如果没有弄清难以对数据建模</p>
+<p>先验概率，就是某事件的发生概率，可以由常识或统计得到，如P(x).</p>
+<p>后验概率，即反向条件概率，条件概率指一个事件发生后另一个事件的概率，如P(x|y)的反向概率为P(y|x).</p>
+<p>贝叶斯公式为P(y|x)=P(x|y)*P(y)/P(x)  其中P(x)、P(y)为先验概率, P(y|x)为基于先验概率和条件概率求出的后验概率.</p>
+<a id="more"></a>
+<p>判别模型和生成模型也是易混淆的概念，它们是监督学习用到的两个模型</p>
+<p>判别模型利用数据直接学习条件概率分布P(y|x)，利用输入x求出y判断x属于哪一类，如SVM、CRF、感知机、决策树.</p>
+<p>生成模型利用数据学习联合分布P(x,y)，然后利用联合分布求出P(y|x)，可以学习出x与y的关系, 不同类型x服从不同的分布，如朴素贝叶斯、隐马模型.</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>ありがとうございました<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础概念</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">长文</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小贴士</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/17/机器学习概念-先-后验概率，判别-生成模型/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/04/15/微博情感分类器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微博情感分类器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -216,9 +335,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
